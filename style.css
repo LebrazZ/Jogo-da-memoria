@@ -32,4 +32,11 @@ body{
     color: white;
 
     font-size: 40px;
+
+    transition: 0.3s;
+}
+
+.carta:hover{
+
+    transform: scale(1.05);
 }

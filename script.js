@@ -1,5 +1,8 @@
 const tabuleiro = document.getElementById("tabuleiro");
 // pega a div do tabuleiro do HTML
+const mostrarTentativas = document.getElementById("tentativas");
+const mostarTempo = document.getElementById("tempo");
+
 const cartas = [
 // cria um array com os pares das cartas
     "🍎",
@@ -21,6 +24,18 @@ let segundaCarta = null;
 // guarda a segunda carta clicada;
 let bloqueio = false;
 // impede o jogador de clicar enquanto o jogo verifica as cartas
+let paresEncontrados = 0;
+// conta quantos pares o jogador acertou
+let tentativas = 0;
+let tempo = 0;
+
+setInterval(function(){
+
+    tempo++;
+
+    mostrarTempo.innerHTML = tempo;
+
+}, 1000);
 
 function criarCartas(){
 
@@ -61,8 +76,19 @@ function criarCartas(){
 function verificarPar(){
     bloqueio = true;
 // o jogo fica "travado" temporariamente
+    tentativas++;
+// adiciona +1 a cada jogada
+    mostrarTentativas.innerHTML = tentativas;
+// atualiza o número da tela
     if(primeiraCarta.dataset.valor === segundaCarta.dataset.valor){
 // " === " as cartas permanecem abertas / essa é a comparação
+        paresEncontrados++;
+   
+        if(paresEncontrados === 4){
+
+            alert("Parabéns! Você venceu 🎉");
+        }    
+
         primeiraCarta = null;
 // "null" limpa as variáveis / o jogo "esquece" as cartas antigas
         segundaCarta = null;
