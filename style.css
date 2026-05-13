@@ -1,0 +1,35 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.tabuleiro{
+    width: 600px;
+
+    margin: 30px auto;
+
+    display: grid;
+/* transforma o tabuleiro em uma grade */
+    grid-template-columns: repeat(4, 1fr);
+/* as cartas ficam organizadas em linhas e colunas */
+    gap: 10px;
+}
+
+.carta{
+    height: 120px;
+
+    background-color: blue;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 40px;
+}
