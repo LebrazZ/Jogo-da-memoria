@@ -110,4 +110,8 @@ function verificarPar(){
     }
 }
 
+function reiniciarJogo(){
+    location.reload();
+}
+
 criarCartas();
