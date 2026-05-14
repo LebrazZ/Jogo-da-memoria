@@ -1,18 +1,18 @@
 const tabuleiro = document.getElementById("tabuleiro");
-// pega a div do tabuleiro do HTML
+
 const mostrarTentativas = document.getElementById("tentativas");
-const mostarTempo = document.getElementById("tempo");
+
+const mostrarTempo = document.getElementById("tempo");
 
 const cartas = [
-// cria um array com os pares das cartas
-    "🍎",
-    "🍌",
-    "🍇",
-    "🍓",
-    "🍎",
-    "🍌",
-    "🍇",
-    "🍓"
+    "images/card1.png",
+    "images/card2.png",
+    "images/card3.png",
+    "images/card4.png",
+    "images/card1.png",
+    "images/card2.png",
+    "images/card3.png",
+    "images/card4.png"
 ];
 
 cartas.sort(() => Math.random() - 0.5);  
@@ -54,7 +54,7 @@ function criarCartas(){
 // se o jogo estiver “ocupado”, ele impede novos cliques
             if(carta.innerHTML !== "") return;
 // impede clicar na mesma carta várias vezes.
-            carta.innerHTML = carta.dataset.valor;
+            carta.innerHTML = `<img src="${carta.dataset.valor}">`;
 // a carta mostra o valor salvo nela
            if(primeiraCarta === null){
 
@@ -81,13 +81,18 @@ function verificarPar(){
     mostrarTentativas.innerHTML = tentativas;
 // atualiza o número da tela
     if(primeiraCarta.dataset.valor === segundaCarta.dataset.valor){
-// " === " as cartas permanecem abertas / essa é a comparação
+// as cartas permanecem abertas / essa é a comparação
         paresEncontrados++;
-   
+
+        primeiraCarta.classList.add("acertou");
+
+        segundaCarta.classList.add("acertou");
+
         if(paresEncontrados === 4){
 
             alert("Parabéns! Você venceu 🎉");
-        }    
+
+        }
 
         primeiraCarta = null;
 // "null" limpa as variáveis / o jogo "esquece" as cartas antigas
